@@ -1,3 +1,4 @@
+
 export const metadata={
 
     // default: Used for pages that don’t have their own title. This acts as the fallback title.
@@ -12,5 +13,12 @@ export const metadata={
 
 export default function blog()
 {
-    return <h1>Blog</h1>
+    return (
+    <>
+
+    <h1>Blog</h1>
+   
+    </>
+    )
+    
 }
