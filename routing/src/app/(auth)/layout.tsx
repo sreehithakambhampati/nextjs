@@ -20,7 +20,7 @@ export default function AuthLayOut({
     <div>
        
       {navLinks.map((link) => {
-        console.log(pathName)
+        // console.log(pathName)
         const isActive = pathName === link.href || (pathName.startsWith(link.href) && link.href !=="/")
         return <Link className={isActive ? "font-bold mr-4" : "text-blue-500 mr-4 "} href={link.href} key={link.href}>{link.name}</Link>;
       })}
