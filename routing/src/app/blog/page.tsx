@@ -11,14 +11,14 @@ export const metadata={
     
 }
 
-export default function blog()
+export default async function blog()
 {
-    return (
-    <>
+    await new Promise((resolve)=>{
+        setTimeout(()=>{
+              resolve("Intentional delay");
 
-    <h1>Blog</h1>
-   
-    </>
-    )
+        },2000)
+    })
+    return <h1>My blog</h1>
     
 }
