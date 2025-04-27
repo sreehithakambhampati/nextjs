@@ -1,4 +1,5 @@
-import { Metadata } from "next"
+
+import { ErrorWrapper } from "./error-wrapper"
 
 
 // default: Used for pages that don’t have their own title. This acts as the fallback title.
@@ -25,7 +26,10 @@ export default function RootLayout({
         <header style={{backgroundColor:"lightblue",padding:"1rem"}}>
           <p>Header</p>
         </header>
+        <ErrorWrapper>
         {children}
+        </ErrorWrapper>
+        
         <footer style={{backgroundColor:"pink",padding:"1rem"}}>
           <p>Footer</p>
         </footer>

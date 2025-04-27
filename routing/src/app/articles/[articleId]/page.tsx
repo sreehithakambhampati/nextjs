@@ -21,7 +21,7 @@
 "use client"
 import Link from "next/link";
 import {use} from "react"
-export default async function NewsArticle({params,searchParams}:{params:Promise<{articleId:string}>;
+export default function NewsArticle({params,searchParams}:{params:Promise<{articleId:string}>;
     searchParams:Promise<{lang?:"en"|"es"|"fr"}>
 }){
     const {articleId} =  use(params)
