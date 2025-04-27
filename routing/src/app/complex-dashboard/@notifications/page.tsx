@@ -6,9 +6,11 @@ export default async function NotificationMetrics() {
 
   return (
     <>
-    <Card>Notification Metrics</Card>
-    {/* Sub-navigation in routes */}
+    <Card>Notification Metrics
     <Link href="complex-dashboard/archived">Archived</Link>
+    </Card>
+    {/* Sub-navigation in routes */}
+    
     </>
   );
 }
