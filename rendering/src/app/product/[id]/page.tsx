@@ -1,3 +1,5 @@
+export const dynamicParams = false;
+
 // /product/[id] page is rendered dynamically in the beginning
 // but when we use generateStaticParams the ids mentioned in the function will be pre rendered as static HTML(SSG) and the remaining routes use fallback behavior
 // Fallback:-Renders on initial navigation Then: Caches as static HTML.and does not update on refresh 
