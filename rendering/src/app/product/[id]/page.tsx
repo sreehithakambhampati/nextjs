@@ -5,6 +5,12 @@ export const dynamicParams = false;
 // Fallback:-Renders on initial navigation Then: Caches as static HTML.and does not update on refresh 
 
 
+
+
+// When we use `generateStaticParams` in a route with only three specific IDs, accessing a route like `product/4` (which isn't included in those IDs) will still render the page once, but it will be treated as static and won’t update over time (e.g., the timestamp won’t refresh).
+
+
+
 export async function generateStaticParams(){
       return [{id : "1"},{id : "2"},{id : "3"}]
 }
