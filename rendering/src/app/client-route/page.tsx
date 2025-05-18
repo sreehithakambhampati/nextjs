@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 // import { useTheme } from '@/components/ThemeProvider';
 import { useContext } from 'react';
 import {ThemeContext} from '@/components/ThemeProvider';
+import { clientSideFunction } from '../utils/client-utils';
 
 
 export default function ClientRoutePage() {
@@ -13,6 +14,7 @@ export default function ClientRoutePage() {
     dots: true,
   };
   const theme = useContext(ThemeContext)
+  const result = clientSideFunction();
   
   return (
     <div className="image-slider-container">
@@ -32,6 +34,7 @@ export default function ClientRoutePage() {
       </Slider>
       <div style={{ color: theme.colors.primary }}>
       <h1>Client route page</h1>
+      <h1>{result}</h1>
     </div>
     </div>
   );
