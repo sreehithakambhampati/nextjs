@@ -1,20 +1,16 @@
-import { redirect } from "next/navigation";
-import { addProduct } from "@/prisma-db";
+"use client"
 import { Submit } from "@/components/Submit";
+import { FormState, createProduct } from "@/actions/products";
+import { useActionState } from "react";
 
 export default function AddProductsPage(){
-       async function createProduct(formData:FormData)
-       {
-        "use server"
-         const title = formData.get("title") as string
-         const price = formData.get("price") as string;
-    const description = formData.get("description") as string;
-    await addProduct(title,parseInt(price),description)
-    redirect("/products-db")
-
-       }
+  const initialState : FormState = {
+    errors:{}
+  };
+  const[state,formAction,isPending] = useActionState(createProduct,initialState)
+       
        return(
-         <form action={createProduct} className="p-4 space-y-4 max-w-96">
+         <form action={formAction} className="p-4 space-y-4 max-w-96">
       <label className="text-white">
         Title
         <input
@@ -23,6 +19,9 @@ export default function AddProductsPage(){
           name="title"
         />
       </label>
+      {state.errors.title && (
+          <p className="text-red-500">{state.errors.title}</p>
+        )}
       <label className="text-white">
         Price
         <input
@@ -30,6 +29,9 @@ export default function AddProductsPage(){
           className="block w-full p-2 text-black border rounded"
           name="price"
         />
+        {state.errors.price && (
+          <p className="text-red-500">{state.errors.price}</p>
+        )}
       </label>
       <label className="text-white">
         Description
@@ -38,6 +40,9 @@ export default function AddProductsPage(){
           name="description"
         />
       </label>
+      {state.errors.description && (
+          <p className="text-red-500">{state.errors.description}</p>
+        )}
      <Submit/>
     </form>
   );
