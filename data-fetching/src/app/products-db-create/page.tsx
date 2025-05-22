@@ -1,11 +1,12 @@
 import { redirect } from "next/navigation";
 import { addProduct } from "@/prisma-db";
+import { Submit } from "@/components/Submit";
 
 export default function AddProductsPage(){
        async function createProduct(formData:FormData)
        {
         "use server"
-        const title = formData.get("title") as string
+         const title = formData.get("title") as string
          const price = formData.get("price") as string;
     const description = formData.get("description") as string;
     await addProduct(title,parseInt(price),description)
@@ -37,12 +38,7 @@ export default function AddProductsPage(){
           name="description"
         />
       </label>
-      <button
-        type="submit"
-        className="block w-full p-2 text-white bg-blue-500 rounded disabled:bg-gray-500"
-      >
-        Add Product
-      </button>
+     <Submit/>
     </form>
   );
        
