@@ -2,7 +2,7 @@
 import { getProducts } from "../../prisma-db";
 
 
-type Product = {
+export type Product = {
   id: number;
   title: string;
   price: number;
