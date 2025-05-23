@@ -1,5 +1,6 @@
 "use server";
-import { updateProduct,addProduct } from "@/prisma-db";
+import { updateProduct,addProduct, deleteProduct } from "@/prisma-db";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export type Errors = {
@@ -21,7 +22,7 @@ export async function createProduct(prevState: FormState, formData: FormData) {
     errors.title = "Title is req";
   }
   if (!price) {
-    errors.price = "Priceis req";
+    errors.price = "Price is req";
   }
   if (!description) {
     errors.description = "Description is req";
@@ -47,4 +48,9 @@ export async function editProduct(id:number,prevState: FormState, formData: Form
   if (Object.keys(errors).length > 0) return { errors };
   await updateProduct(id,title, parseInt(price), description);
   redirect("/products-db");
+}
+export async function removeProduct(id:number){
+  await deleteProduct(id);
+  revalidatePath('/products-db')
+
 }
