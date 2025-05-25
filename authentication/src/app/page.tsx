@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Counter } from "@/components/counter";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
 
         
       </main>
+      <Counter></Counter>
       
     </div>
   );
